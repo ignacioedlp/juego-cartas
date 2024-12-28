@@ -1,11 +1,35 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Deck from "../components/Deck";
+import Header from "../components/Header.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juego de Cartas</title>
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body class="bg-gray-100 min-h-screen">
+    <Header />
+    <main class="p-6 flex flex-col items-center gap-2">
+      <a
+        href="/en_palabras"
+        class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg shadow-lg"
+      >
+        En Palabras
+        </a>
+        <a
+          href="/desconectados"
+          class="bg-lime-500 text-white font-bold py-2 px-4 rounded-lg shadow-lg"
+          >Desconectados</a
+        >
+        <a
+          href="/picantes"
+          class="bg-red-500 text-white font-bold py-2 px-4 rounded-lg shadow-lg"
+          >Picantes</a
+        >
+    </main>
+  </body>
+</html>

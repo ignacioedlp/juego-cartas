@@ -1,0 +1,21 @@
+---
+import Deck from '../components/Deck';
+import Header from '../components/Header.astro';
+import { EN_PALABRAS } from '../config/constant';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>En palabras</title>
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body class="bg-gray-100 min-h-screen">
+    <Header />
+    <main class="p-6">
+      <Deck client:visible questions={EN_PALABRAS} />
+    </main>
+  </body>
+</html>
