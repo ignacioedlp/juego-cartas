@@ -1,45 +1,54 @@
 ---
 import Deck from "../components/Deck";
 import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+
+const Juegos = [
+  {
+    name: "Verdad o mentira",
+    href: "/verdad-o-mentira",
+    background: "bg-gradient-to-r from-sky-400 to-blue-500",
+    description: "¿Podrás adivinar si es verdad o mentira?",
+  },
+  {
+    name: "Divertidas",
+    href: "/divertidas",
+    background: "bg-gradient-to-tl from-teal-300 to-cyan-600",
+    description: "Preguntas para reír y pasar un buen rato",
+  },
+  {
+    name: "Desconectados",
+    href: "/desconectados",
+    background: "bg-gradient-to-r from-purple-500 to-purple-900",
+    description: "Preguntas para desconectar y reflexionar",
+  },
+  {
+    name: "Picantes",
+    href: "/picantes",
+    background: "bg-gradient-to-r from-red-500 to-orange-500",
+    description: "Preguntas subidas de tono",
+  },
+  {
+    name: "En palabras",
+    href: "/en-palabras",
+    background: "bg-gradient-to-r from-fuchsia-500 to-pink-500",
+    description: "Preguntas para describir con una sola palabra",
+  },
+];
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juego de Cartas</title>
-    <link rel="stylesheet" href="/src/styles/global.css" />
-  </head>
-  <body class="bg-gray-100 min-h-screen">
-    <Header />
-    <main class="p-6 flex flex-col items-center gap-2">
-      <a
-        href="/en-palabras"
-        class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg shadow-lg"
-      >
-        En Palabras
-        </a>
-        <a
-          href="/desconectados"
-          class="bg-lime-500 text-white font-bold py-2 px-4 rounded-lg shadow-lg"
-          >Desconectados</a
-        >
-        <a
-          href="/picantes"
-          class="bg-red-500 text-white font-bold py-2 px-4 rounded-lg shadow-lg"
-          >Picantes</a
-        >
-        <a
-          href="/verdad-o-mentira"
-          class="bg-red-500 text-white font-bold py-2 px-4 rounded-lg shadow-lg"
-          >Verdad o Mentira</a
-        >
-        <a
-          href="/divertidas"
-          class="bg-red-500 text-white font-bold py-2 px-4 rounded-lg shadow-lg"
-          >Divertidas</a
-        >
-    </main>
-  </body>
-</html>
+<Layout>
+  <main class="p-6 flex flex-wrap items-center gap-6 bg-zinc-900 h-full justify-center">
+    {
+      Juegos.map((juego, index) => (
+          <a
+          href={juego.href}
+          class={`w-72 h-96 ${juego.background} rounded-3xl shadow-lg flex flex-col items-center gap-7 p-6 justify-center transform transition-transform duration-300 hover:scale-105 hover:shadow-xl`}
+          >
+          <span class="text-white text-3xl font-bold text-pretty text-center">{juego.name}</span>
+            <span class="text-white text-lg text-center">{juego.description}</span>
+          </a>
+      ))
+    }
+  </main>
+</Layout>

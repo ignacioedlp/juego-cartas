@@ -2,20 +2,20 @@
 import Deck from '../components/Deck';
 import Header from '../components/Header.astro';
 import { DIVERTIDAS } from '../config/constant';
+import Layout from '../layouts/Layout.astro';
+
+const cards = DIVERTIDAS.map((question, index) => {
+  return {
+    question: question.question,
+    category: 'Divertidas',
+    color: 'cean',
+  };
+});
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Divertidas</title>
-    <link rel="stylesheet" href="/src/styles/global.css" />
-  </head>
-  <body class="bg-gray-100 min-h-screen">
-    <Header />
-    <main class="p-6">
-      <Deck client:visible questions={DIVERTIDAS} />
-    </main>
-  </body>
-</html>
+
+<Layout>
+  <main>
+    <Deck client:visible questions={cards} title='Divertidas' />
+  </main>
+</Layout>
